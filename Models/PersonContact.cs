@@ -16,13 +16,5 @@ namespace ExampleMvvmPattern.Models
         [ObservableProperty] private string _email;
         [ObservableProperty] private string _location;
         [ObservableProperty] private string _phoneNumber;
-
-        //public string Surname { get; set; }
-
-        //public string Email { get; set; }
-
-        //public string Location { get; set; }
-
-        //public string PhoneNumber { get; set; }
     }
 }

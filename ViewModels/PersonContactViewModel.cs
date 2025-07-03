@@ -48,11 +48,5 @@ namespace ExampleMvvmPattern.ViewModels
             aFirstContact.Location = aSecondContact.Location;
             aFirstContact.PhoneNumber = aSecondContact.PhoneNumber;
         }
-        
-        //private bool canSave()
-        //{
-        //    return !string.IsNullOrWhiteSpace(Student.Name) &&
-        //           !string.IsNullOrWhiteSpace(Student.Surname);
-        //}
     }
 }
