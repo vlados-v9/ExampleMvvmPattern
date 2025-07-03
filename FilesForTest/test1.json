@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "Vlad",
+    "Surname": "Vlados",
+    "Email": "vlad44@gmail.com",
+    "Location": "Dnipro",
+    "PhoneNumber": "0546987123"
+  },
+  {
+    "Name": "Sofi",
+    "Surname": "Fruit",
+    "Email": "fsofi@gmail.com",
+    "Location": "Lutsk",
+    "PhoneNumber": "4569787123"
+  },
+  {
+    "Name": "Floid",
+    "Surname": "Domryt",
+    "Email": "domfloid@gmail.com",
+    "Location": "Garage",
+    "PhoneNumber": "596856985"
+  }
+]
