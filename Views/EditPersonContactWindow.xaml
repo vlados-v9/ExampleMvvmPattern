@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ExampleMvvmPattern.Views"
         xmlns:vm="clr-namespace:ExampleMvvmPattern.ViewModels"
         mc:Ignorable="d"
-        Title="Person Contact" Height="450" Width="500"
+        Title="Person Contact" Height="350" Width="500"
         WindowStartupLocation="CenterScreen">
 
     <Grid>
@@ -25,62 +25,72 @@
 
         <TextBlock Grid.Row="0"
                    Grid.Column="0"
-                   Margin="5"
+                   Margin="10"
                    VerticalAlignment="Center"
+                   FontSize="14"
                    Text="Name:" />
         <TextBox Grid.Row="0" 
                  Grid.Column="1"
                  VerticalAlignment="Center"
-                 Margin="5"
+                 Margin="10"
+                 FontSize="14"
                  Text="{Binding CurrentContact.Name, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="1" 
                    Grid.Column="0"
-                   Margin="5"
+                   Margin="10"
                    VerticalAlignment="Center"
+                   FontSize="14"
                    Text="Surname:" />
         <TextBox Grid.Row="1" 
                  Grid.Column="1"
                  VerticalAlignment="Center"
-                 Margin="5"
+                 Margin="10"
+                 FontSize="14"
                  Text="{Binding CurrentContact.Surname, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="2" 
                    Grid.Column="0"
-                   Margin="5"
+                   Margin="10"
                    VerticalAlignment="Center"
+                   FontSize="14"
                    Text="Email:" />
         <TextBox Grid.Row="2" 
                  Grid.Column="1"
                  VerticalAlignment="Center"
-                 Margin="5"
+                 Margin="10"
+                 FontSize="14"
                  Text="{Binding CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="3" 
                    Grid.Column="0"
-                   Margin="5"
+                   Margin="10"
                    VerticalAlignment="Center"
+                   FontSize="14"
                    Text="Location:" />
         <TextBox Grid.Row="3" 
                  Grid.Column="1"
                  VerticalAlignment="Center"
-                 Margin="5"
+                 Margin="10"
+                 FontSize="14"
                  Text="{Binding CurrentContact.Location, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="4" 
                    Grid.Column="0"
-                   Margin="5"
+                   Margin="10"
                    VerticalAlignment="Center"
+                   FontSize="14"
                    Text="Phone Number:" />
         <TextBox Grid.Row="4" 
                  Grid.Column="1"
                  VerticalAlignment="Center"
-                 Margin="5"
+                 Margin="10"
+                 FontSize="14"
                  Text="{Binding CurrentContact.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
         <StackPanel Grid.Row="5" Grid.Column="2" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
-            <Button Content="Save" Width="75" Margin="5" Command="{Binding SaveCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
-            <Button Content="Cancel" Width="75" Margin="5" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+            <Button Content="Save" Width="90" Margin="5" Command="{Binding SaveCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+            <Button Content="Cancel" Width="90" Margin="5" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
         </StackPanel>
     </Grid>
 </Window>

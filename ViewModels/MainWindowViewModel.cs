@@ -2,20 +2,31 @@
 using CommunityToolkit.Mvvm.Input;
 using ExampleMvvmPattern.Contract;
 using ExampleMvvmPattern.Models;
+using MaterialDesignColors;
+using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
+using System.Windows.Input;
 
 
 namespace ExampleMvvmPattern.ViewModels
 {
     public partial class MainWindowViewModel : ObservableObject
     {
+        private bool _isDarkTheme;
+
         private readonly IDialogService _dialogService;
 
+        private readonly PaletteHelper _paletteHelper = new PaletteHelper();
+
         private ObservableCollection<PersonContact> _allContact = new();
+
+        #region Observable Property
 
         [ObservableProperty]
         private ObservableCollection<PersonContact> _personContacts = new();
@@ -26,10 +37,31 @@ namespace ExampleMvvmPattern.ViewModels
         [ObservableProperty]
         private string? filterText;
 
+        public bool IsDarkTheme
+        {
+            get => _isDarkTheme;
+            set
+            {
+                if(_isDarkTheme != value)
+                {
+                    _isDarkTheme = value;
+                    OnPropertyChanged();
+                    applyTheme();
+                }
+            }
+        }
+        #endregion
+
         public MainWindowViewModel(IDialogService aDialogService)
         {
             _dialogService = aDialogService ?? throw new ArgumentNullException(nameof(aDialogService));
+
+            ToggleThemeCommand = new RelayCommand(() => IsDarkTheme = !IsDarkTheme);
         }
+
+        #region Command
+
+        public ICommand ToggleThemeCommand { get; }
 
         [RelayCommand]
         private void SaveToJson()
@@ -113,6 +145,29 @@ namespace ExampleMvvmPattern.ViewModels
                 _allContact.Remove(SelectedPersonC);
                 applyFilter();
             }
+        }
+
+        #endregion
+
+        public void SetPrimary(PrimaryColor color)
+        {
+            var theme = _paletteHelper.GetTheme();
+            theme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialDesignColor)color]);
+            _paletteHelper.SetTheme(theme);
+        }
+
+        public void SetSecondary(SecondaryColor color)
+        {
+            var theme = _paletteHelper.GetTheme();
+            theme.SetSecondaryColor(SwatchHelper.Lookup[(MaterialDesignColor)color]);
+            _paletteHelper.SetTheme(theme);
+        }
+
+        private void applyTheme()
+        {
+            var theme = _paletteHelper.GetTheme();
+            theme.SetBaseTheme(IsDarkTheme ? BaseTheme.Dark : BaseTheme.Light);
+            _paletteHelper.SetTheme(theme);
         }
 
         private void applyFilter()
